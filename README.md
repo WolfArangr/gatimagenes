@@ -1,99 +1,109 @@
-Traduce esto a perfecto castellano, Español de España
+# Interfaz web de Stable Diffusion
 
-# Stable Diffusion web UI
-A web interface for Stable Diffusion, implemented using Gradio library.
+Una interfaz web para Stable Diffusion, implementada con la biblioteca Gradio.
 
 ![](screenshot.png)
 
-## Features
-[Detailed feature showcase with images](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
-- Original txt2img and img2img modes
-- One click install and run script (but you still must install python and git)
-- Outpainting
-- Inpainting
-- Color Sketch
-- Prompt Matrix
-- Stable Diffusion Upscale
-- Attention, specify parts of text that the model should pay more attention to
-    - a man in a `((tuxedo))` - will pay more attention to tuxedo
-    - a man in a `(tuxedo:1.21)` - alternative syntax
-    - select text and press `Ctrl+Up` or `Ctrl+Down` (or `Command+Up` or `Command+Down` if you're on a MacOS) to automatically adjust attention to selected text (code contributed by anonymous user)
-- Loopback, run img2img processing multiple times
-- X/Y/Z plot, a way to draw a 3 dimensional plot of images with different parameters
-- Textual Inversion
-    - have as many embeddings as you want and use any names you like for them
-    - use multiple embeddings with different numbers of vectors per token
-    - works with half precision floating point numbers
-    - train embeddings on 8GB (also reports of 6GB working)
-- Extras tab with:
-    - GFPGAN, neural network that fixes faces
-    - CodeFormer, face restoration tool as an alternative to GFPGAN
-    - RealESRGAN, neural network upscaler
-    - ESRGAN, neural network upscaler with a lot of third party models
-    - SwinIR and Swin2SR ([see here](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/2092)), neural network upscalers
-    - LDSR, Latent diffusion super resolution upscaling
-- Resizing aspect ratio options
-- Sampling method selection
-    - Adjust sampler eta values (noise multiplier)
-    - More advanced noise setting options
-- Interrupt processing at any time
-- 4GB video card support (also reports of 2GB working)
-- Correct seeds for batches
-- Live prompt token length validation
-- Generation parameters
-     - parameters you used to generate images are saved with that image
-     - in PNG chunks for PNG, in EXIF for JPEG
-     - can drag the image to PNG info tab to restore generation parameters and automatically copy them into UI
-     - can be disabled in settings
-     - drag and drop an image/text-parameters to promptbox
-- Read Generation Parameters Button, loads parameters in promptbox to UI
-- Settings page
-- Running arbitrary python code from UI (must run with `--allow-code` to enable)
-- Mouseover hints for most UI elements
-- Possible to change defaults/mix/max/step values for UI elements via text config
-- Tiling support, a checkbox to create images that can be tiled like textures
-- Progress bar and live image generation preview
-    - Can use a separate neural network to produce previews with almost none VRAM or compute requirement
-- Negative prompt, an extra text field that allows you to list what you don't want to see in generated image
-- Styles, a way to save part of prompt and easily apply them via dropdown later
-- Variations, a way to generate same image but with tiny differences
-- Seed resizing, a way to generate same image but at slightly different resolution
-- CLIP interrogator, a button that tries to guess prompt from an image
-- Prompt Editing, a way to change prompt mid-generation, say to start making a watermelon and switch to anime girl midway
-- Batch Processing, process a group of files using img2img
-- Img2img Alternative, reverse Euler method of cross attention control
-- Highres Fix, a convenience option to produce high resolution pictures in one click without usual distortions
-- Reloading checkpoints on the fly
-- Checkpoint Merger, a tab that allows you to merge up to 3 checkpoints into one
-- [Custom scripts](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Custom-Scripts) with many extensions from community
-- [Composable-Diffusion](https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/), a way to use multiple prompts at once
-     - separate prompts using uppercase `AND`
-     - also supports weights for prompts: `a cat :1.2 AND a dog AND a penguin :2.2`
-- No token limit for prompts (original stable diffusion lets you use up to 75 tokens)
-- DeepDanbooru integration, creates danbooru style tags for anime prompts
-- [xformers](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Xformers), major speed increase for select cards: (add `--xformers` to commandline args)
-- via extension: [History tab](https://github.com/yfszzx/stable-diffusion-webui-images-browser): view, direct and delete images conveniently within the UI
-- Generate forever option
-- Training tab
-     - hypernetworks and embeddings options
-     - Preprocessing images: cropping, mirroring, autotagging using BLIP or deepdanbooru (for anime)
-- Clip skip
-- Hypernetworks
-- Loras (same as Hypernetworks but more pretty)
-- A separate UI where you can choose, with preview, which embeddings, hypernetworks or Loras to add to your prompt
-- Can select to load a different VAE from settings screen
-- Estimated completion time in progress bar
-- API
-- Support for dedicated [inpainting model](https://github.com/runwayml/stable-diffusion#inpainting-with-stable-diffusion) by RunwayML
-- via extension: [Aesthetic Gradients](https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients), a way to generate images with a specific aesthetic by using clip images embeds (implementation of [https://github.com/vicgalle/stable-diffusion-aesthetic-gradients](https://github.com/vicgalle/stable-diffusion-aesthetic-gradients))
-- [Stable Diffusion 2.0](https://github.com/Stability-AI/stablediffusion) support - see [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20) for instructions
-- [Alt-Diffusion](https://arxiv.org/abs/2211.06679) support - see [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#alt-diffusion) for instructions
-- Now without any bad letters!
-- Load checkpoints in safetensors format
-- Eased resolution restriction: generated image's dimensions must be a multiple of 8 rather than 64
-- Now with a license!
-- Reorder elements in the UI from settings screen
-- [Segmind Stable Diffusion](https://huggingface.co/segmind/SSD-1B) support
+## Funcionalidades
+
+[Demostración detallada de características con imágenes](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
+
+* Modos originales txt2img e img2img
+* Script de instalación y ejecución en un solo clic (pero aún debes instalar Python y Git)
+* Outpainting
+* Inpainting
+* Boceto de color
+* Matriz de prompts
+* Escalado de Stable Diffusion
+* Atención: especifica partes del texto a las que el modelo debe prestar más atención
+
+  * un hombre con un `((esmoquin))` – prestará más atención al esmoquin
+  * un hombre con un `(esmoquin:1.21)` – sintaxis alternativa
+  * selecciona el texto y pulsa `Ctrl+Arriba` o `Ctrl+Abajo` (o `Command+Arriba` o `Command+Abajo` si usas MacOS) para ajustar automáticamente la atención al texto seleccionado (código aportado por un usuario anónimo)
+* Loopback, ejecuta el procesamiento img2img varias veces
+* Gráfico X/Y/Z, una forma de trazar un gráfico tridimensional de imágenes con distintos parámetros
+* Inversión textual
+
+  * puedes tener tantas incrustaciones como quieras y usar cualquier nombre para ellas
+  * usa múltiples incrustaciones con diferente número de vectores por token
+  * funciona con números de coma flotante de media precisión
+  * entrena incrustaciones con 8 GB (también se han reportado casos con 6 GB)
+* Pestaña de extras con:
+
+  * GFPGAN, red neuronal que corrige caras
+  * CodeFormer, herramienta de restauración facial alternativa a GFPGAN
+  * RealESRGAN, escalador con red neuronal
+  * ESRGAN, escalador con red neuronal con muchos modelos de terceros
+  * SwinIR y Swin2SR ([ver aquí](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/2092)), escaladores con redes neuronales
+  * LDSR, escalado de superresolución por difusión latente
+* Opciones de redimensionamiento de relación de aspecto
+* Selección de método de muestreo
+
+  * Ajuste de valores eta del muestreador (multiplicador de ruido)
+  * Más opciones avanzadas de configuración de ruido
+* Interrumpir el procesamiento en cualquier momento
+* Soporte para tarjetas gráficas de 4 GB (también hay reportes de 2 GB funcionando)
+* Semillas correctas para lotes
+* Validación en directo de la longitud del prompt en tokens
+* Parámetros de generación
+
+  * los parámetros usados para generar imágenes se guardan con la imagen
+  * en bloques PNG para PNG, en EXIF para JPEG
+  * puedes arrastrar la imagen a la pestaña de información PNG para restaurar los parámetros de generación y copiarlos automáticamente en la interfaz
+  * se puede desactivar en los ajustes
+  * arrastra y suelta una imagen o parámetros en texto en el cuadro de prompt
+* Botón Leer parámetros de generación, carga los parámetros al cuadro de prompt en la interfaz
+* Página de configuración
+* Ejecución de código Python arbitrario desde la interfaz (debe ejecutarse con `--allow-code` para habilitarlo)
+* Pistas emergentes al pasar el ratón por encima de la mayoría de los elementos de la interfaz
+* Posibilidad de cambiar valores predeterminados/mínimos/máximos/pasos para los elementos de la interfaz mediante archivo de configuración de texto
+* Soporte de teselado, una casilla para crear imágenes que se puedan repetir como texturas
+* Barra de progreso y vista previa de generación de imagen en tiempo real
+
+  * Se puede usar una red neuronal separada para generar vistas previas sin apenas necesidad de VRAM ni cómputo
+* Prompt negativo, un campo de texto adicional para indicar lo que no quieres que aparezca en la imagen generada
+* Estilos, una forma de guardar partes del prompt y aplicarlos fácilmente desde un desplegable
+* Variaciones, una forma de generar la misma imagen con pequeñas diferencias
+* Redimensionamiento de semilla, una forma de generar la misma imagen con una resolución ligeramente distinta
+* Interrogador CLIP, un botón que intenta adivinar el prompt a partir de una imagen
+* Edición de prompt, una forma de cambiar el prompt durante la generación, por ejemplo para empezar generando una sandía y cambiar a chica anime a mitad
+* Procesamiento por lotes, procesa un grupo de archivos usando img2img
+* Alternativa a img2img, método Euler inverso para el control de atención cruzada
+* Corrección de alta resolución, opción para generar imágenes en alta resolución con un clic sin distorsiones habituales
+* Recarga de checkpoints al vuelo
+* Combinador de checkpoints, una pestaña que permite fusionar hasta 3 checkpoints en uno
+* [Scripts personalizados](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Custom-Scripts) con muchas extensiones de la comunidad
+* [Composable-Diffusion](https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/), una forma de usar múltiples prompts a la vez
+
+  * separa prompts usando `AND` en mayúsculas
+  * también admite pesos para prompts: `un gato :1.2 AND un perro AND un pingüino :2.2`
+* Sin límite de tokens para prompts (Stable Diffusion original permite hasta 75 tokens)
+* Integración de DeepDanbooru, genera etiquetas estilo Danbooru para prompts anime
+* [xformers](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Xformers), mejora de velocidad significativa en ciertas tarjetas: (añade `--xformers` a los argumentos de línea de comandos)
+* mediante extensión: [Pestaña de historial](https://github.com/yfszzx/stable-diffusion-webui-images-browser): ver, dirigir y borrar imágenes cómodamente desde la interfaz
+* Opción de generar indefinidamente
+* Pestaña de entrenamiento
+
+  * opciones de hiperrredes e incrustaciones
+  * Preprocesado de imágenes: recorte, reflejo, autoetiquetado con BLIP o deepdanbooru (para anime)
+* Clip skip
+* Hypernetworks
+* Loras (como las Hypernetworks pero más bonitas)
+* Una interfaz separada donde puedes elegir, con vista previa, qué incrustaciones, hiperrredes o Loras añadir a tu prompt
+* Posibilidad de seleccionar un VAE diferente desde la pantalla de ajustes
+* Tiempo estimado de finalización en la barra de progreso
+* API
+* Soporte para [modelo específico de inpainting](https://github.com/runwayml/stable-diffusion#inpainting-with-stable-diffusion) de RunwayML
+* mediante extensión: [Aesthetic Gradients](https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients), una forma de generar imágenes con una estética concreta usando incrustaciones CLIP de imágenes ([implementación](https://github.com/vicgalle/stable-diffusion-aesthetic-gradients))
+* Soporte para [Stable Diffusion 2.0](https://github.com/Stability-AI/stablediffusion) – ver [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20) para instrucciones
+* Soporte para [Alt-Diffusion](https://arxiv.org/abs/2211.06679) – ver [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#alt-diffusion) para instrucciones
+* ¡Ahora sin letras problemáticas!
+* Carga de checkpoints en formato safetensors
+* Restricción de resolución suavizada: las dimensiones de la imagen generada deben ser múltiplos de 8 en lugar de 64
+* ¡Ahora con licencia!
+* Reordenar elementos en la interfaz desde la pantalla de ajustes
+* Soporte para [Segmind Stable Diffusion](https://huggingface.co/segmind/SSD-1B)
+
 
 ## Installation and Running
 Make sure the required [dependencies](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Dependencies) are met and follow the instructions available for:
