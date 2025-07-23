@@ -17,8 +17,8 @@ Una interfaz web para Stable Diffusion, implementada con la biblioteca Gradio.
 * Escalado de Stable Diffusion
 * Atención: especifica partes del texto a las que el modelo debe prestar más atención
 
-  * un hombre con un `((esmoquin))` – prestará más atención al esmoquin
-  * un hombre con un `(esmoquin:1.21)` – sintaxis alternativa
+  * un hombre con un `((smoking))` – prestará más atención al esmoquin
+  * un hombre con un `(smoking:1.21)` – sintaxis alternativa
   * selecciona el texto y pulsa `Ctrl+Arriba` o `Ctrl+Abajo` (o `Command+Arriba` o `Command+Abajo` si usas MacOS) para ajustar automáticamente la atención al texto seleccionado (código aportado por un usuario anónimo)
 * Loopback, ejecuta el procesamiento img2img varias veces
 * Gráfico X/Y/Z, una forma de trazar un gráfico tridimensional de imágenes con distintos parámetros
@@ -76,7 +76,7 @@ Una interfaz web para Stable Diffusion, implementada con la biblioteca Gradio.
 * [Composable-Diffusion](https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/), una forma de usar múltiples prompts a la vez
 
   * separa prompts usando `AND` en mayúsculas
-  * también admite pesos para prompts: `un gato :1.2 AND un perro AND un pingüino :2.2`
+  * también admite pesos para prompts: `a cat :1.2 AND a dog AND a penguin :2.2`
 * Sin límite de tokens para prompts (Stable Diffusion original permite hasta 75 tokens)
 * Integración de DeepDanbooru, genera etiquetas estilo Danbooru para prompts anime
 * [xformers](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Xformers), mejora de velocidad significativa en ciertas tarjetas: (añade `--xformers` a los argumentos de línea de comandos)
@@ -97,50 +97,60 @@ Una interfaz web para Stable Diffusion, implementada con la biblioteca Gradio.
 * mediante extensión: [Aesthetic Gradients](https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients), una forma de generar imágenes con una estética concreta usando incrustaciones CLIP de imágenes ([implementación](https://github.com/vicgalle/stable-diffusion-aesthetic-gradients))
 * Soporte para [Stable Diffusion 2.0](https://github.com/Stability-AI/stablediffusion) – ver [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20) para instrucciones
 * Soporte para [Alt-Diffusion](https://arxiv.org/abs/2211.06679) – ver [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#alt-diffusion) para instrucciones
-* ¡Ahora sin letras problemáticas!
+* ¡Ahora sin letras chungas!
 * Carga de checkpoints en formato safetensors
 * Restricción de resolución suavizada: las dimensiones de la imagen generada deben ser múltiplos de 8 en lugar de 64
 * ¡Ahora con licencia!
 * Reordenar elementos en la interfaz desde la pantalla de ajustes
 * Soporte para [Segmind Stable Diffusion](https://huggingface.co/segmind/SSD-1B)
 
+---
 
-## Installation and Running
-Make sure the required [dependencies](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Dependencies) are met and follow the instructions available for:
-- [NVidia](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs) (recommended)
-- [AMD](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-AMD-GPUs) GPUs.
-- [Intel CPUs, Intel GPUs (both integrated and discrete)](https://github.com/openvinotoolkit/stable-diffusion-webui/wiki/Installation-on-Intel-Silicon) (external wiki page)
-- [Ascend NPUs](https://github.com/wangshuai09/stable-diffusion-webui/wiki/Install-and-run-on-Ascend-NPUs) (external wiki page)
+## Instalación y ejecución
 
-Alternatively, use online services (like Google Colab):
+Asegúrate de cumplir con las [dependencias](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Dependencies) necesarias y sigue las instrucciones disponibles para:
 
-- [List of Online Services](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Online-Services)
+* [NVidia](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs) (recomendado)
+* GPUs [AMD](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-AMD-GPUs).
+* [CPUs Intel, GPUs Intel (integradas y discretas)](https://github.com/openvinotoolkit/stable-diffusion-webui/wiki/Installation-on-Intel-Silicon) (página externa del wiki)
+* [NPUs Ascend](https://github.com/wangshuai09/stable-diffusion-webui/wiki/Install-and-run-on-Ascend-NPUs) (página externa del wiki)
 
-### Installation on Windows 10/11 with NVidia-GPUs using release package
-1. Download `sd.webui.zip` from [v1.0.0-pre](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.0.0-pre) and extract its contents.
-2. Run `update.bat`.
-3. Run `run.bat`.
-> For more details see [Install-and-Run-on-NVidia-GPUs](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs)
+También puedes usar servicios online (como Google Colab):
 
-### Automatic Installation on Windows
-1. Install [Python 3.10.6](https://www.python.org/downloads/release/python-3106/) (Newer version of Python does not support torch), checking "Add Python to PATH".
-2. Install [git](https://git-scm.com/download/win).
-3. Download the stable-diffusion-webui repository, for example by running `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`.
-4. Run `webui-user.bat` from Windows Explorer as normal, non-administrator, user.
+* [Lista de servicios online](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Online-Services)
 
-### Automatic Installation on Linux
-1. Install the dependencies:
+### Instalación en Windows 10/11 con GPUs NVidia usando paquete de lanzamiento
+
+1. Descarga `sd.webui.zip` desde [v1.0.0-pre](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.0.0-pre) y extrae su contenido.
+2. Ejecuta `update.bat`.
+3. Ejecuta `run.bat`.
+
+> Para más detalles, consulta [Install-and-Run-on-NVidia-GPUs](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Install-and-Run-on-NVidia-GPUs)
+
+### Instalación automática en Windows
+
+1. Instala [Python 3.10.6](https://www.python.org/downloads/release/python-3106/) (Versiones más recientes de Python no son compatibles con torch), marcando la opción "Add Python to PATH".
+2. Instala [git](https://git-scm.com/download/win).
+3. Descarga el repositorio stable-diffusion-webui, por ejemplo ejecutando `git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git`.
+4. Ejecuta `webui-user.bat` desde el Explorador de archivos de Windows como usuario normal (no administrador).
+
+### Instalación automática en Linux
+
+1. Instala las dependencias:
+
 ```bash
-# Debian-based:
+# Basado en Debian:
 sudo apt install wget git python3 python3-venv libgl1 libglib2.0-0
-# Red Hat-based:
+# Basado en Red Hat:
 sudo dnf install wget git python3 gperftools-libs libglvnd-glx
-# openSUSE-based:
+# Basado en openSUSE:
 sudo zypper install wget git python3 libtcmalloc4 libglvnd
-# Arch-based:
+# Basado en Arch:
 sudo pacman -S wget git python3
 ```
-If your system is very new, you need to install python3.11 or python3.10:
+
+Si tu sistema es muy nuevo, necesitas instalar python3.11 o python3.10:
+
 ```bash
 # Ubuntu 24.04
 sudo add-apt-repository ppa:deadsnakes/ppa
@@ -149,69 +159,77 @@ sudo apt install python3.11
 
 # Manjaro/Arch
 sudo pacman -S yay
-yay -S python311 # do not confuse with python3.11 package
+yay -S python311 # no confundir con el paquete python3.11
 
-# Only for 3.11
-# Then set up env variable in launch script
+# Solo para 3.11
+# Luego establece la variable de entorno en el script de lanzamiento
 export python_cmd="python3.11"
-# or in webui-user.sh
+# o en webui-user.sh
 python_cmd="python3.11"
 ```
-2. Navigate to the directory you would like the webui to be installed and execute the following command:
+
+2. Navega al directorio donde quieras instalar la interfaz web y ejecuta el siguiente comando:
+
 ```bash
 wget -q https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh
 ```
-Or just clone the repo wherever you want:
+
+O simplemente clona el repositorio donde quieras:
+
 ```bash
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
 ```
 
-3. Run `webui.sh`.
-4. Check `webui-user.sh` for options.
-### Installation on Apple Silicon
+3. Ejecuta `webui.sh`.
+4. Revisa `webui-user.sh` para más opciones.
 
-Find the instructions [here](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon).
+### Instalación en Apple Silicon
 
-## Contributing
-Here's how to add code to this repo: [Contributing](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Contributing)
+Encuentra las instrucciones [aquí](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon).
 
-## Documentation
+## Contribuir
 
-The documentation was moved from this README over to the project's [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki).
+Aquí tienes cómo aportar código a este repositorio: [Contributing](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Contributing)
 
-For the purposes of getting Google and other search engines to crawl the wiki, here's a link to the (not for humans) [crawlable wiki](https://github-wiki-see.page/m/AUTOMATIC1111/stable-diffusion-webui/wiki).
+## Documentación
 
-## Credits
-Licenses for borrowed code can be found in `Settings -> Licenses` screen, and also in `html/licenses.html` file.
+La documentación se ha trasladado desde este README al [wiki](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki) del proyecto.
 
-- Stable Diffusion - https://github.com/Stability-AI/stablediffusion, https://github.com/CompVis/taming-transformers, https://github.com/mcmonkey4eva/sd3-ref
-- k-diffusion - https://github.com/crowsonkb/k-diffusion.git
-- Spandrel - https://github.com/chaiNNer-org/spandrel implementing
-  - GFPGAN - https://github.com/TencentARC/GFPGAN.git
-  - CodeFormer - https://github.com/sczhou/CodeFormer
-  - ESRGAN - https://github.com/xinntao/ESRGAN
-  - SwinIR - https://github.com/JingyunLiang/SwinIR
-  - Swin2SR - https://github.com/mv-lab/swin2sr
-- LDSR - https://github.com/Hafiidz/latent-diffusion
-- MiDaS - https://github.com/isl-org/MiDaS
-- Ideas for optimizations - https://github.com/basujindal/stable-diffusion
-- Cross Attention layer optimization - Doggettx - https://github.com/Doggettx/stable-diffusion, original idea for prompt editing.
-- Cross Attention layer optimization - InvokeAI, lstein - https://github.com/invoke-ai/InvokeAI (originally http://github.com/lstein/stable-diffusion)
-- Sub-quadratic Cross Attention layer optimization - Alex Birch (https://github.com/Birch-san/diffusers/pull/1), Amin Rezaei (https://github.com/AminRezaei0x443/memory-efficient-attention)
-- Textual Inversion - Rinon Gal - https://github.com/rinongal/textual_inversion (we're not using his code, but we are using his ideas).
-- Idea for SD upscale - https://github.com/jquesnelle/txt2imghd
-- Noise generation for outpainting mk2 - https://github.com/parlance-zz/g-diffuser-bot
-- CLIP interrogator idea and borrowing some code - https://github.com/pharmapsychotic/clip-interrogator
-- Idea for Composable Diffusion - https://github.com/energy-based-model/Compositional-Visual-Generation-with-Composable-Diffusion-Models-PyTorch
-- xformers - https://github.com/facebookresearch/xformers
-- DeepDanbooru - interrogator for anime diffusers https://github.com/KichangKim/DeepDanbooru
-- Sampling in float32 precision from a float16 UNet - marunine for the idea, Birch-san for the example Diffusers implementation (https://github.com/Birch-san/diffusers-play/tree/92feee6)
-- Instruct pix2pix - Tim Brooks (star), Aleksander Holynski (star), Alexei A. Efros (no star) - https://github.com/timothybrooks/instruct-pix2pix
-- Security advice - RyotaK
-- UniPC sampler - Wenliang Zhao - https://github.com/wl-zhao/UniPC
-- TAESD - Ollin Boer Bohan - https://github.com/madebyollin/taesd
-- LyCORIS - KohakuBlueleaf
-- Restart sampling - lambertae - https://github.com/Newbeeer/diffusion_restart_sampling
-- Hypertile - tfernd - https://github.com/tfernd/HyperTile
-- Initial Gradio script - posted on 4chan by an Anonymous user. Thank you Anonymous user.
-- (You)
+Con el fin de que Google y otros motores de búsqueda rastreen el wiki, aquí tienes un enlace al [wiki rastreable](https://github-wiki-see.page/m/AUTOMATIC1111/stable-diffusion-webui/wiki) (no pensado para humanos).
+
+## Créditos
+
+Las licencias del código reutilizado pueden encontrarse en la pantalla `Ajustes -> Licencias` y también en el archivo `html/licenses.html`.
+
+* Stable Diffusion - [https://github.com/Stability-AI/stablediffusion](https://github.com/Stability-AI/stablediffusion), [https://github.com/CompVis/taming-transformers](https://github.com/CompVis/taming-transformers), [https://github.com/mcmonkey4eva/sd3-ref](https://github.com/mcmonkey4eva/sd3-ref)
+* k-diffusion - [https://github.com/crowsonkb/k-diffusion.git](https://github.com/crowsonkb/k-diffusion.git)
+* Spandrel - [https://github.com/chaiNNer-org/spandrel](https://github.com/chaiNNer-org/spandrel) implementando
+
+  * GFPGAN - [https://github.com/TencentARC/GFPGAN.git](https://github.com/TencentARC/GFPGAN.git)
+  * CodeFormer - [https://github.com/sczhou/CodeFormer](https://github.com/sczhou/CodeFormer)
+  * ESRGAN - [https://github.com/xinntao/ESRGAN](https://github.com/xinntao/ESRGAN)
+  * SwinIR - [https://github.com/JingyunLiang/SwinIR](https://github.com/JingyunLiang/SwinIR)
+  * Swin2SR - [https://github.com/mv-lab/swin2sr](https://github.com/mv-lab/swin2sr)
+* LDSR - [https://github.com/Hafiidz/latent-diffusion](https://github.com/Hafiidz/latent-diffusion)
+* MiDaS - [https://github.com/isl-org/MiDaS](https://github.com/isl-org/MiDaS)
+* Ideas para optimizaciones - [https://github.com/basujindal/stable-diffusion](https://github.com/basujindal/stable-diffusion)
+* Optimización de la capa de Atención Cruzada - Doggettx - [https://github.com/Doggettx/stable-diffusion](https://github.com/Doggettx/stable-diffusion), idea original para edición de prompts.
+* Optimización de la capa de Atención Cruzada - InvokeAI, lstein - [https://github.com/invoke-ai/InvokeAI](https://github.com/invoke-ai/InvokeAI) (originalmente [http://github.com/lstein/stable-diffusion](http://github.com/lstein/stable-diffusion))
+* Optimización subcuadrática de la capa de Atención Cruzada - Alex Birch ([https://github.com/Birch-san/diffusers/pull/1](https://github.com/Birch-san/diffusers/pull/1)), Amin Rezaei ([https://github.com/AminRezaei0x443/memory-efficient-attention](https://github.com/AminRezaei0x443/memory-efficient-attention))
+* Inversión textual - Rinon Gal - [https://github.com/rinongal/textual\_inversion](https://github.com/rinongal/textual_inversion) (no usamos su código, pero sí sus ideas).
+* Idea para escalado con SD - [https://github.com/jquesnelle/txt2imghd](https://github.com/jquesnelle/txt2imghd)
+* Generación de ruido para outpainting mk2 - [https://github.com/parlance-zz/g-diffuser-bot](https://github.com/parlance-zz/g-diffuser-bot)
+* Idea del interrogador CLIP y algo de código reutilizado - [https://github.com/pharmapsychotic/clip-interrogator](https://github.com/pharmapsychotic/clip-interrogator)
+* Idea para Composable Diffusion - [https://github.com/energy-based-model/Compositional-Visual-Generation-with-Composable-Diffusion-Models-PyTorch](https://github.com/energy-based-model/Compositional-Visual-Generation-with-Composable-Diffusion-Models-PyTorch)
+* xformers - [https://github.com/facebookresearch/xformers](https://github.com/facebookresearch/xformers)
+* DeepDanbooru - interrogador para difusores de anime [https://github.com/KichangKim/DeepDanbooru](https://github.com/KichangKim/DeepDanbooru)
+* Muestreo en precisión float32 desde una UNet float16 - idea de marunine, implementación ejemplo de Birch-san ([https://github.com/Birch-san/diffusers-play/tree/92feee6](https://github.com/Birch-san/diffusers-play/tree/92feee6))
+* Instruct pix2pix - Tim Brooks (estrella), Aleksander Holynski (estrella), Alexei A. Efros (sin estrella) - [https://github.com/timothybrooks/instruct-pix2pix](https://github.com/timothybrooks/instruct-pix2pix)
+* Consejos de seguridad - RyotaK
+* Muestreador UniPC - Wenliang Zhao - [https://github.com/wl-zhao/UniPC](https://github.com/wl-zhao/UniPC)
+* TAESD - Ollin Boer Bohan - [https://github.com/madebyollin/taesd](https://github.com/madebyollin/taesd)
+* LyCORIS - KohakuBlueleaf
+* Reinicio del muestreo - lambertae - [https://github.com/Newbeeer/diffusion\_restart\_sampling](https://github.com/Newbeeer/diffusion_restart_sampling)
+* Hypertile - tfernd - [https://github.com/tfernd/HyperTile](https://github.com/tfernd/HyperTile)
+* Script inicial de Gradio - publicado en 4chan por un usuario anónimo. Gracias, usuario anónimo.
+* (Tú)
