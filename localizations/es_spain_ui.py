@@ -1,0 +1,150 @@
+"""Spain Spanish UI localization strings for gatimagenes.
+
+This file contains the mapping of UI element IDs to their Spanish translations.
+Used in conjunction with es.json for comprehensive localization.
+"""
+
+UI_STRINGS = {
+    # Main tabs
+    'txt2img_generation': 'Generación',
+    'img2img_generation': 'Generación',
+    'extras_single_tab': 'Imagen única',
+    'extras_batch_process_tab': 'Procesamiento por lotes',
+    'extras_batch_directory_tab': 'Lote desde directorio',
+    
+    # Prompt and negative prompt
+    'txt2img_prompt': 'Indicación',
+    'txt2img_neg_prompt': 'Indicación negativa',
+    'img2img_prompt': 'Indicación',
+    'img2img_neg_prompt': 'Indicación negativa',
+    'extras_prompt': 'Indicación',
+    'extras_neg_prompt': 'Indicación negativa',
+    
+    # Generation parameters
+    'txt2img_width': 'Ancho',
+    'txt2img_height': 'Alto',
+    'img2img_width': 'Ancho',
+    'img2img_height': 'Alto',
+    'txt2img_cfg_scale': 'Escala CFG',
+    'img2img_cfg_scale': 'Escala CFG',
+    'txt2img_image_cfg_scale': 'Escala CFG de imagen',
+    'img2img_image_cfg_scale': 'Escala CFG de imagen',
+    'txt2img_batch_count': 'Cantidad de lotes',
+    'img2img_batch_count': 'Cantidad de lotes',
+    'txt2img_batch_size': 'Tamaño de lote',
+    'img2img_batch_size': 'Tamaño de lote',
+    
+    # High-res fix
+    'txt2img_hr': 'Corrección de alta resolución',
+    'txt2img_hr_upscaler': 'Ampliador',
+    'txt2img_hr_scale': 'Ampliar por',
+    'txt2img_hires_steps': 'Pasos de alta resolución',
+    'txt2img_denoising_strength': 'Fuerza de desnoise',
+    'txt2img_hr_resize_x': 'Cambiar ancho a',
+    'txt2img_hr_resize_y': 'Cambiar alto a',
+    'txt2img_hr_sampler': 'Método de muestreo de alta resolución',
+    'txt2img_hr_scheduler': 'Tipo de programa de alta resolución',
+    
+    # Buttons
+    'txt2img_generate': 'Generar',
+    'txt2img_interrupt': 'Interrumpir',
+    'txt2img_skip': 'Saltar',
+    'txt2img_interrupting': 'Interrumpiendo...',
+    'img2img_generate': 'Generar',
+    'img2img_interrupt': 'Interrumpir',
+    'img2img_skip': 'Saltar',
+    'img2img_interrupting': 'Interrumpiendo...',
+    'extras_generate': 'Generar',
+    
+    # Tools
+    'txt2img_clear_prompt': 'Limpiar indicación',
+    'img2img_clear_prompt': 'Limpiar indicación',
+    'paste': 'Pegar',
+    'txt2img_style_apply': 'Aplicar estilos',
+    'img2img_style_apply': 'Aplicar estilos',
+    'txt2img_interrogate': 'Interrogar CLIP',
+    'img2img_interrogate': 'Interrogar CLIP',
+    'img2img_deepbooru': 'DeepBooru',
+    
+    # Styles
+    'txt2img_styles': 'Estilos',
+    'img2img_styles': 'Estilos',
+    'txt2img_styles_edit_button': 'Editar estilos',
+    'img2img_styles_edit_button': 'Editar estilos',
+    'txt2img_edit_style_save': 'Guardar',
+    'img2img_edit_style_save': 'Guardar',
+    'txt2img_edit_style_delete': 'Eliminar',
+    'img2img_edit_style_delete': 'Eliminar',
+    'txt2img_edit_style_close': 'Cerrar',
+    'img2img_edit_style_close': 'Cerrar',
+    
+    # img2img specific
+    'img2img_img2img_tab': 'Imagen',
+    'img2img_img2img_sketch_tab': 'Boceto',
+    'img2img_inpaint_tab': 'Pintura',
+    'img2img_inpaint_sketch_tab': 'Boceto de pintura',
+    'img2img_inpaint_upload_tab': 'Carga de pintura',
+    'img2img_batch_tab': 'Lote',
+    'img2img_resize_mode': 'Modo de redimensionamiento',
+    'img2img_scale': 'Escala',
+    'img2img_mask_blur': 'Desenfoque de máscara',
+    'img2img_mask_mode': 'Modo de máscara',
+    'img2img_mask_fill': 'Contenido enmascarado',
+    'img2img_inpaint_full_res': 'Área de pintura',
+    'img2img_inpaint_full_res_padding': 'Relleno solo enmascarado, píxeles',
+    
+    # Output
+    'txt2img_gallery': 'Salida',
+    'img2img_gallery': 'Salida',
+    'extras_gallery': 'Salida',
+    'txt2img_open_folder': 'Abrir carpeta',
+    'img2img_open_folder': 'Abrir carpeta',
+    'extras_open_folder': 'Abrir carpeta',
+    'save_txt2img': 'Guardar imagen',
+    'save_img2img': 'Guardar imagen',
+    'save_zip_txt2img': 'Guardar como zip',
+    'save_zip_img2img': 'Guardar como zip',
+    'txt2img_send_to_img2img': 'Enviar a img2img',
+    'txt2img_send_to_inpaint': 'Enviar a pintura',
+    'txt2img_send_to_extras': 'Enviar a extras',
+    'img2img_send_to_img2img': 'Enviar a img2img',
+    'img2img_send_to_inpaint': 'Enviar a pintura',
+    'img2img_send_to_extras': 'Enviar a extras',
+    'txt2img_upscale': 'Ampliación',
+    
+    # Extras
+    'extras_image': 'Fuente',
+    'extras_image_batch': 'Procesamiento por lotes',
+    'extras_batch_input_dir': 'Directorio de entrada',
+    'extras_batch_output_dir': 'Directorio de salida',
+    'extras_show_extras_results': 'Mostrar imágenes de resultados',
+    
+    # Training
+    'train_new_embedding_name': 'Nombre',
+    'train_initialization_text': 'Texto de inicialización',
+    'train_nvpt': 'Número de vectores por token',
+    'train_overwrite_old_embedding': 'Sobrescribir inserción anterior',
+    'train_create_embedding': 'Crear inserción',
+    'train_new_hypernetwork_name': 'Nombre',
+    'train_new_hypernetwork_modules': 'Módulos',
+    'train_new_hypernetwork_layer_structure': 'Introducir estructura de capa de hiperred',
+    'train_create_hypernetwork': 'Crear hiperred',
+    'train_embedding': 'Inserción',
+    'train_hypernetwork': 'Hiperred',
+    'train_embedding_learn_rate': 'Tasa de aprendizaje de inserción',
+    'train_hypernetwork_learn_rate': 'Tasa de aprendizaje de hiperred',
+    'train_batch_size': 'Tamaño de lote',
+    'train_gradient_step': 'Pasos de acumulación de gradiente',
+    'train_dataset_directory': 'Directorio del conjunto de datos',
+    'train_log_directory': 'Directorio de registro',
+    'train_template_file': 'Plantilla de indicación',
+    'train_training_width': 'Ancho',
+    'train_training_height': 'Alto',
+    'train_varsize': 'No cambiar tamaño de imágenes',
+    'train_steps': 'Pasos máximos',
+    'train_create_image_every': 'Guardar una imagen al directorio de registro cada N pasos',
+    'train_save_embedding_every': 'Guardar una copia de inserción al directorio de registro cada N pasos',
+    'train_train_embedding': 'Entrenar inserción',
+    'train_interrupt_training': 'Interrumpir',
+    'train_train_hypernetwork': 'Entrenar hiperred',
+}
